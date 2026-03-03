@@ -1,0 +1,17 @@
+# Удали старый render.yaml (если хочешь)
+# Создай новый файл в VS Code с таким содержимым:
+
+cat > render.yaml << 'EOF'
+services:
+  - type: web
+    name: komus-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python webhook_bot.py
+EOF
+
+# Добавь в git
+git add render.yaml
+git commit -m "Fix render.yaml"
+git push
